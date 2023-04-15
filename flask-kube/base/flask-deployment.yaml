@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: "flask"
-        image: "sushanku/flask-monitor-app:latest"
+        image: "sushanku/flask-monitor-app"
         resources:
           requests:
             memory: "64Mi"
