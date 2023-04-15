@@ -1,0 +1,30 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "flask-monitor"
+  namespace: "default"
+  labels:
+    app: "flask-monitor"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "flask-monitor"
+  template:
+    metadata:
+      labels:
+        app: "flask-monitor"
+    spec:
+      containers:
+      - name: "flask"
+        image: "sushanku/flask-monitor-app:latest"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        envFrom:
+        - configMapRef:
+            name: "flask-config"

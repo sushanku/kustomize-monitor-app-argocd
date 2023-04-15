@@ -1,0 +1,5 @@
+bases:
+  - ../../base
+patches:
+  - resource_limits.yaml
+  - lb_service.yaml
